@@ -1,0 +1,112 @@
+import time
+
+def slow_print(text, delay=0.03):
+    for char in text:
+        print(char, end='', flush=True)
+        time.sleep(delay)
+    print()
+
+def display_welcome():
+    slow_print(" Welcome to the AI–ML Developer Intern Task Assistant!")
+    slow_print("Your objective: Build an offline chat-reply recommendation system using Transformers.\n")
+
+def display_tools():
+    slow_print(" Preloaded Tools Available:")
+    slow_print(" Python 3.10+")
+    slow_print(" Libraries: transformers, torch, numpy, pandas, scikit-learn, nltk, matplotlib, joblib")
+    slow_print(" IDEs: Jupyter Notebook or PyCharm")
+    slow_print(" Dataset:")
+    slow_print("   - /Desktop/Dataset/userA_chats.csv")
+    slow_print("   - /Desktop/Dataset/userB_chats.csv\n")
+
+def task_steps():
+    slow_print(" TASK STEPS:\n")
+    
+    steps = [
+        "1 Load and clean both chat CSVs.",
+        "2 Merge conversations to form (User B message ➝ User A reply) pairs.",
+        "3  Tokenize and preprocess data (truncate, pad, clean, etc.).",
+        "4  Fine-tune a transformer model (like GPT-2 or T5) offline.",
+        "5  Generate User A-style replies given User B's latest message.",
+        "6 Evaluate results using BLEU, ROUGE, or Perplexity.",
+        "7  Save your model using joblib and write a report.",
+        "8  Package your submission as per the folder structure.\n"
+    ]
+    
+    for step in steps:
+        slow_print(step)
+        time.sleep(0.2)
+
+def submission_structure():
+    slow_print("\n SUBMISSION FOLDER STRUCTURE:\n")
+    slow_print("your_meetmux_email_id/")
+    slow_print("├── ChatRec_Model.ipynb     <- Your full working notebook")
+    slow_print("├── Report.pdf              <- Model choice, training, evaluation summary")
+    slow_print("├── Model.joblib            <- Trained model file")
+    slow_print("└── ReadMe.txt              <- How to run the project\n")
+
+def evaluation_focus():
+    slow_print(" EVALUATION FOCUS:")
+    focus_points = [
+        " Context Handling",
+        " Model Optimization",
+        " Creativity in Reply Generation",
+        " Code Efficiency & Clarity",
+        " Justification in Report"
+    ]
+    for point in focus_points:
+        slow_print(point)
+        time.sleep(0.1)
+
+def model_suggestion():
+    slow_print("\n MODEL SUGGESTIONS:")
+    slow_print("- Use GPT-2 or T5 for reply generation tasks (they are generative models).")
+    slow_print("- Keep sequences short to avoid memory overflow (truncate long history).")
+    slow_print("- Use Hugging Face Transformers with preloaded weights.\n")
+
+def example_pipeline():
+    slow_print(" EXAMPLE WORKFLOW:")
+    slow_print("""
+1. Read and pair the datasets:
+   - userA_chats.csv and userB_chats.csv
+
+2. Create dialogue pairs:
+   (e.g., User B: "How are you?" → User A: "I'm good, thanks!")
+
+3. Preprocess using tokenizer:
+   from transformers import GPT2Tokenizer
+   tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+
+4. Fine-tune using Trainer API or custom training loop
+
+5. Evaluate using nltk.bleu_score or rouge_score
+
+6. Save model:
+   joblib.dump(model, "Model.joblib")
+""")
+
+def start_chatbot():
+    display_welcome()
+    input("Press Enter to continue...\n")
+    
+    display_tools()
+    input("Press Enter to continue to task steps...\n")
+    
+    task_steps()
+    input("Press Enter to view submission folder structure...\n")
+    
+    submission_structure()
+    input("Press Enter to view evaluation criteria...\n")
+    
+    evaluation_focus()
+    input("Press Enter for model suggestions...\n")
+    
+    model_suggestion()
+    input("Press Enter for an example implementation pipeline...\n")
+    
+    example_pipeline()
+    slow_print("\n You're ready to start coding! Good luck with your offline Transformer chatbot system!")
+
+if _name_ == "_main_":
+    start_chatbot()
+n
